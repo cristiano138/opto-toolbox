@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>光电工具箱 · 随手算</title>
+<meta name="description" content="光电专业随手算：光功率 dBm、波长与光子能量、折射与全反射、薄透镜成像、光纤数值孔径、增透膜、链路预算">
+<meta name="theme-color" content="#0D100F">
+<meta name="color-scheme" content="dark">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon.svg">
+<!-- iOS：装到主屏幕后用独立窗口打开、状态栏透明、图标用这张 -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="光电工具箱">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+  <div class="h-top">
+    <h1>🔬 光电工具箱</h1>
+    <span class="badge"><span id="count">0</span> 个计算器</span>
+  </div>
+  <input id="q" type="search" placeholder="搜：dBm / 薄透镜 / 光纤 / 增透膜 …" autocomplete="off">
+</header>
+
+<!-- 装到桌面的引导条：安卓和电脑上会多出一个「装到桌面」按钮 -->
+<div id="hintbar" hidden>
+  <span id="hint-text"></span>
+  <button id="install" class="ibtn" hidden>📲 装到桌面</button>
+  <button id="hint-close" class="ix">✕</button>
+</div>
+
+<main>
+  <!-- 首页：分类 + 计算器卡片 -->
+  <section id="home">
+    <div id="cats" class="chips"></div>
+    <div id="grid" class="grid"></div>
+  </section>
+
+  <!-- 详情页：填参数 → 出结果 -->
+  <section id="detail" hidden>
+    <button id="back" class="back">← 返回全部</button>
+    <div class="dcard">
+      <h2 id="d-name"></h2>
+      <p id="d-desc" class="d-desc"></p>
+      <div id="d-inputs" class="inputs"></div>
+    </div>
+    <div class="dcard">
+      <h3 class="sec">计算结果</h3>
+      <div id="d-results" class="results"></div>
+    </div>
+    <div id="d-formula" class="formula"></div>
+    <div id="d-note" class="note"></div>
+  </section>
+</main>
+
+<footer>
+  装到桌面后点图标直接用 · 所有计算都在你手机里完成，不联网、不上传
+</footer>
+
+<!-- 加载顺序有讲究：工具 → 注册中心 → 各个计算器 → 界面 → 启动
+     每做完一个计算器，就在下面「加计算器」的两行注释之间补一行
+     <script src="js/calc/文件名.js"></script> -->
+<script src="js/core/utils.js"></script>
+<script src="js/core/registry.js"></script>
+
+<!-- ↓↓↓ 加计算器：每做完一个，在这里加一行 ↓↓↓ -->
+
+<!-- ↑↑↑ 加计算器：加到上面一行下面就行 ↑↑↑ -->
+
+<script src="js/core/ui.js"></script>
+<script src="js/core/app.js"></script>
+</body>
+</html>

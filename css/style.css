@@ -1,0 +1,196 @@
+/* ============================================================
+ * 电子工具箱 · 深色主题
+ * 配色跟「足球速报」保持一致：近黑底 + 亮绿主色
+ * ============================================================ */
+:root {
+  --bg: #0D100F;
+  --card: #151A18;
+  --card2: #1B2120;
+  --line: #2A3230;
+  --tx: #E8EDEB;
+  --tx2: #9BA8A4;
+  --gr: #35C08F;
+  --gr-l: #4ADE9F;
+  --gr-dk: #14805D;
+  --warn: #F5C86B;
+  --bad: #FF7A6B;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--tx);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  line-height: 1.6;
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+  overflow-x: hidden;          /* 兜底：任何元素都不许把页面撑宽导致横向滚动 */
+}
+
+/* ---------- 顶部 ---------- */
+header {
+  position: sticky; top: 0; z-index: 40;
+  background: rgba(13, 16, 15, .92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+  padding: 14px 16px 12px;
+  padding-top: calc(14px + env(safe-area-inset-top));
+}
+.h-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+h1 { font-size: 19px; letter-spacing: .5px; }
+.badge {
+  font-size: 12px; color: var(--gr);
+  background: rgba(53, 192, 143, .12);
+  border: 1px solid rgba(53, 192, 143, .3);
+  border-radius: 20px; padding: 3px 10px;
+}
+#q {
+  width: 100%; background: var(--card); border: 1px solid var(--line);
+  border-radius: 10px; padding: 11px 14px; color: var(--tx);
+  font-size: 15px; font-family: inherit; outline: none;
+}
+#q:focus { border-color: var(--gr); }
+#q::placeholder { color: #6B7773; }
+
+main { padding: 16px 16px 120px; max-width: 720px; margin: 0 auto; }
+
+/* ---------- 分类标签 ---------- */
+.chips {
+  display: flex; gap: 8px; overflow-x: auto;
+  padding-bottom: 6px; margin-bottom: 14px;
+  scrollbar-width: none;
+}
+.chips::-webkit-scrollbar { display: none; }
+.chip {
+  border: 1px solid var(--line); background: var(--card); color: var(--tx2);
+  border-radius: 20px; padding: 7px 14px; font-size: 13.5px;
+  white-space: nowrap; cursor: pointer; font-family: inherit; transition: .15s;
+}
+.chip.on { background: rgba(53, 192, 143, .15); border-color: var(--gr); color: var(--gr); }
+
+/* ---------- 卡片网格 ---------- */
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(148px, 1fr)); gap: 12px; }
+.card {
+  background: var(--card); border: 1px solid var(--line); border-radius: 14px;
+  padding: 15px; text-align: left; cursor: pointer; font-family: inherit;
+  color: var(--tx); transition: .15s;
+}
+.card:hover, .card:active { border-color: var(--gr); transform: translateY(-2px); }
+.c-ico { font-size: 26px; line-height: 1; }
+.c-name { font-weight: 700; font-size: 15px; margin: 8px 0 4px; overflow-wrap: break-word; }
+.c-desc { font-size: 12.5px; color: var(--tx2); line-height: 1.5; overflow-wrap: break-word; }
+
+.empty { text-align: center; color: var(--tx2); padding: 30px 10px; font-size: 14.5px; }
+
+/* ---------- 详情页 ---------- */
+.back {
+  background: none; border: none; color: var(--gr);
+  font-size: 14.5px; cursor: pointer; padding: 0 0 12px; font-family: inherit;
+}
+.dcard {
+  background: var(--card); border: 1px solid var(--line);
+  border-radius: 14px; padding: 16px; margin-bottom: 14px;
+}
+.dcard h2 { font-size: 18px; margin-bottom: 4px; }
+.dcard h3.sec { font-size: 13px; color: var(--tx2); font-weight: 600; margin-bottom: 8px; letter-spacing: 1px; }
+.d-desc { font-size: 13.5px; color: var(--tx2); margin-bottom: 14px; }
+
+/* ---------- 输入表单 ---------- */
+.fld { display: block; margin-bottom: 14px; }
+.f-l { display: block; font-size: 13px; color: var(--tx2); margin-bottom: 6px; }
+.f-wrap {
+  display: flex; align-items: center; gap: 8px;
+  background: #0E1312; border: 1px solid var(--line);
+  border-radius: 10px; padding: 0 12px;
+}
+.f-wrap:focus-within { border-color: var(--gr); }
+.f-in {
+  flex: 1; min-width: 0; background: transparent; border: none;
+  color: var(--tx); font-size: 16px; padding: 12px 0;
+  outline: none; font-family: inherit; width: 100%;
+}
+select.f-in {
+  padding: 12px 26px 12px 0; cursor: pointer;
+  appearance: none; -webkit-appearance: none;
+  /* 自绘下拉箭头：深色主题下原生箭头几乎看不见 */
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%239BA8A4' stroke-width='2.4' stroke-linecap='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: 17px;
+}
+select.f-in option { background: #1B2120; color: var(--tx); }
+.f-u { color: var(--tx2); font-size: 13.5px; white-space: nowrap; }
+
+/* ---------- 结果 ---------- */
+.res { padding: 12px 0; border-bottom: 1px dashed var(--line); }
+.res:last-child { border-bottom: none; padding-bottom: 0; }
+.res-l { font-size: 12.5px; color: var(--tx2); }
+.res-v {
+  font-size: 22px; font-weight: 700; color: var(--gr);
+  margin: 2px 0; word-break: break-word; overflow-wrap: anywhere; line-height: 1.35;
+}
+.res.warn .res-v { color: var(--warn); }
+.res.bad .res-v { color: var(--bad); }
+.res-n { font-size: 12.5px; color: var(--tx2); margin-top: 2px; overflow-wrap: break-word; }
+
+/* 色环可视化 */
+.bands { display: flex; gap: 6px; margin: 10px 0 6px; }
+.band {
+  width: 26px; height: 46px; border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, .18);
+  box-shadow: inset 0 0 8px rgba(0, 0, 0, .35);
+}
+
+.formula {
+  background: var(--card2); border: 1px solid var(--line); border-radius: 12px;
+  padding: 12px 14px; font-size: 13.5px; color: var(--tx2);
+  margin-bottom: 12px; overflow-wrap: break-word;
+}
+.note {
+  background: rgba(53, 192, 143, .08); border-left: 3px solid var(--gr-dk);
+  border-radius: 8px; padding: 11px 14px; font-size: 13.5px; color: #BFDDD1;
+  white-space: pre-wrap; overflow-wrap: break-word;
+}
+
+/* ---------- 安装引导条 ---------- */
+/* 注意：给元素写了 display 之后，HTML 的 hidden 属性就不起作用了
+   （作者样式优先级高于浏览器默认样式），必须补这一条 */
+#hintbar[hidden] { display: none; }
+
+#hintbar {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 50;
+  background: rgba(21, 26, 24, .96);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  border-top: 1px solid var(--line);
+  padding: 11px 14px calc(11px + env(safe-area-inset-bottom));
+  display: flex; align-items: center; gap: 10px; font-size: 13px;
+}
+#hint-text { flex: 1; color: var(--tx2); line-height: 1.45; }
+.ibtn {
+  background: var(--gr); color: #062018; border: none; border-radius: 9px;
+  padding: 8px 14px; font-weight: 700; font-size: 13.5px; cursor: pointer;
+  font-family: inherit; white-space: nowrap;
+}
+.ix {
+  background: none; border: none; color: var(--tx2);
+  font-size: 15px; cursor: pointer; padding: 4px 2px; font-family: inherit;
+}
+
+footer {
+  text-align: center; color: #6B7773; font-size: 12.5px;
+  padding: 20px 16px calc(24px + env(safe-area-inset-bottom));
+  line-height: 1.7; overflow-wrap: break-word;
+}
+
+/* 手机上固定两列，别让卡片挤成一条条窄缝 */
+@media (max-width: 520px) {
+  main { padding: 14px 14px 120px; }
+  .grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .card { padding: 13px; }
+  .res-v { font-size: 20px; }
+}
+@media (max-width: 340px) {
+  .grid { grid-template-columns: 1fr; }
+}

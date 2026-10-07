@@ -1,0 +1,12 @@
+# 临时/中间产物
+__pycache__/
+*.pyc
+node_modules/
+.DS_Store
+Thumbs.db
+
+# 本地预览产生的文件
+*.log
+
+# WorkBuddy 的本地记忆目录，不属于项目代码
+.workbuddy/

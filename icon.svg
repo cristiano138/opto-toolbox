@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <rect width="512" height="512" fill="#0D100F"/>
+  <!-- 电路板走线 -->
+  <g stroke="#1E5C46" stroke-width="7" fill="none">
+    <path d="M30 140 H120"/>
+    <path d="M30 380 H100 V320"/>
+    <path d="M482 160 H390"/>
+    <path d="M482 360 H400 V430"/>
+  </g>
+  <g fill="#35C08F">
+    <circle cx="120" cy="140" r="14"/>
+    <circle cx="100" cy="320" r="14"/>
+    <circle cx="390" cy="160" r="14"/>
+    <circle cx="400" cy="430" r="14"/>
+  </g>
+  <!-- 闪电 -->
+  <path d="M300 90 L170 290 H250 L205 430 L360 220 H270 L345 90 Z" fill="#35C08F"/>
+</svg>

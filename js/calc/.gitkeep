@@ -1,0 +1,2 @@
+这里放计算器文件：一个计算器一个 .js 文件，文件名用英文（比如 dbm.js、thin-lens.js）。
+做完了还要去 index.html 里加一行 <script src="js/calc/文件名.js"></script>，否则页面找不到它。
