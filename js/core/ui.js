@@ -183,9 +183,16 @@
     for (var i = 0; i < nodes.length; i++) {
       var k = nodes[i].getAttribute('data-key');
       raw[k] = nodes[i].value;
-      var v = U.parseNum(nodes[i].value);
+      // 下拉框选的是「选项」不是数字（比如 toMw / lp / yl），
+      // 不能塞给 parseNum（会变 NaN 被当成没填）：
+      // 长得像数字就转成数，不像就原样传字符串给 calc
+      var isSel = nodes[i].tagName === 'SELECT';
+      var s = nodes[i].value;
+      var v = isSel
+        ? (s !== '' && isFinite(Number(s)) ? Number(s) : s)
+        : U.parseNum(s);
       vals[k] = v;
-      if (!isFinite(v)) {
+      if (!isSel && !isFinite(v)) {
         // 找到这一项的名字，好在提示里说清楚缺哪个
         // optional 的项允许留空（比如欧姆定律只要填两个量）
         for (var j = 0; j < c.inputs.length; j++) {

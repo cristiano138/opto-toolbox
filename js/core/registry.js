@@ -11,11 +11,9 @@
 
   /* ---------- 分类表（顺序即首页展示顺序） ---------- */
   var CATS = [
-    { key: 'basic',  name: '基础电路' },
-    { key: 'part',   name: '元件识别' },
-    { key: 'signal', name: '信号与频率' },
-    { key: 'ic',     name: '芯片与定时' },
-    { key: 'comm',   name: '通信与串口' }
+    { key: 'basic',  name: '基础光学' },
+    { key: 'fiber',  name: '光纤与光通信' },
+    { key: 'laser',  name: '激光与器件' }
   ];
 
   var calcs = [];      // 所有已注册的计算器
